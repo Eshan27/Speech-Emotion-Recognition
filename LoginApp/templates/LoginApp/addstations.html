@@ -1,0 +1,30 @@
+{% extends "LoginApp/Base.html" %}
+{% load static%}
+{% block content %}
+
+<div class="content-section">
+    <form method="post" action="/addstations/">
+        {% csrf_token %}
+        <table>
+            <tr>
+
+                <td><input name="froms" type="text" placeholder="from" required></td>
+            </tr>
+            <tr>
+
+                <td><input name="tos" type="text" placeholder="to" required></td>
+            </tr><tr>
+
+                <td><input name="dates" type="date" placeholder="date" required></td>
+            </tr><tr>
+
+                <td><input name="classs" type="text" placeholder="class" required></td>
+            </tr>
+            <tr>
+                <td><button class="btn btn-outline-info" type="submit">Show Train</button></td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+{%endblock content %}

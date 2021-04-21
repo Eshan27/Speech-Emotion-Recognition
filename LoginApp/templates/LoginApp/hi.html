@@ -1,0 +1,26 @@
+{% extends "LoginApp/Base.html" %}
+{% load static%}
+    
+{% block content %}
+    {% for i in titles %}
+        <p><a href="{{i.song_title}}">{{ i.song_title}}</a> Uploaded Date And Time: {{i.date}} {{i.time}}</p>        
+        <audio controls>
+        <source src="media/{{i.song_title}}" type="audio/mpeg">
+    </audio>
+    {% endfor %}
+    
+    {% comment %} {% for post in posts %}
+    <article class="media content-section">
+        
+        <div class="media-body">
+        <div class="article-metadata">
+        <a class="mr-2" href="#">{{ post.author }}</a>
+        <small class="text-muted">{{ post.date_posted }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+        <p class="article-content">{{ post.content }}</p>
+        </div>
+
+    </article>
+    {% endfor %} {% endcomment %}
+{% endblock content %}
