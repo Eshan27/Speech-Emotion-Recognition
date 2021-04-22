@@ -61,7 +61,5 @@ class livePredictions:
 #from the RAVDESS dataset you want to use for the prediction,
 # Below, I have used a neutral file: the prediction made is neutral.
 
-pred = livePredictions(path='./testing10_model.h5',file='')
 
-pred.load_model()
-pred.makepredictions()
+
