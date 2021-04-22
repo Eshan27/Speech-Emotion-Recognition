@@ -13,7 +13,7 @@ from django.template import loader
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.core.files.storage import FileSystemStorage
 import datetime
-from process import livePredictions
+from LoginApp.process import livePredictions
 def hi(request):    
     all_files = Songs.objects.all()
     
@@ -80,7 +80,9 @@ def upload(request):
     return render(request, 'LoginApp/upload.html', context)
 
 def prediction(request,id):
-    pred = livePredictions(path='./testing10_model.h5', file=id)
+    pred = livePredictions(path='LoginApp/testing10_model.h5', file='media/'+id)
     pred.load_model()
-    pred.makepredictions()
-    return render(request, 'LoginApp/prediction.html',{'f_name':id})
+    pre1 = pred.makepredictions()
+    print(pre1)
+    
+    return render(request, 'LoginApp/prediction.html',{'f_name':pre1})

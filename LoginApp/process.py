@@ -9,7 +9,7 @@ class livePredictions:
     """
     Main class of the application.
     """
-
+    
     def __init__(self, path, file):
         """
         Init method is used to initialize the main parameters.
@@ -35,7 +35,9 @@ class livePredictions:
         x = np.expand_dims(mfccs, axis=1)
         x = np.expand_dims(x, axis=0)
         predictions = self.loaded_model.predict_classes(x)
+        predict = self.convertclasstoemotion(predictions)
         print("Prediction is", " ", self.convertclasstoemotion(predictions))
+        return predict
 
     @staticmethod
     def convertclasstoemotion(pred):
