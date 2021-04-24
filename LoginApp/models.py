@@ -9,3 +9,9 @@ class Songs(models.Model):
     time = models.CharField(max_length=250,default="", editable=True)
     def __str__(self):
         return self.song_title
+class record(models.Model):    
+    s_title = models.CharField(max_length=250)
+    d = models.CharField(max_length=250,default="",editable=True)
+    t = models.CharField(max_length=250,default="",editable=True)
+    def __str__(self):
+        return self.s_title

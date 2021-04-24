@@ -1,14 +1,18 @@
 {%extends 'LoginApp/Base.html'%}
 {% block content %}
-    <h2>Upload</h2>
+<head>
+
+</head>
+<body>
+    <h3>Upload Your audio file</h3>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="document">
         <button type="submit">Upload File</button>
     </form>
-    
     {% if url %}
         <p>Uploaded File: <a href= "{{url}}">{{url}}</a></p>
-        
     {% endif %}
+    
+    </body>
 {% endblock %}
