@@ -101,7 +101,7 @@ stroke-width: 0.5px;
     <form action="{% url 'record_audio' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}        
         {% comment %} <button type="submit" name="sort-btn" id="sort-btn">Record Audio</button> {% endcomment %}
-        <button  style="margin-left:500px; margin-top:20px;" onclick="myFunction(); record_audio">Record Audio</button>
+        <button  style="margin-left:500px; margin-top:20px; border-radius: 2em;" onclick="myFunction(); record_audio">Record Audio</button>
         <p  style="margin-left:400px; margin-top:10px;">Recorded File: {{cits}}</p>
         <p  style="margin-left:400px;" id="demo"></p>    
     </form>
@@ -124,7 +124,7 @@ stroke-width: 0.5px;
 
 <h1><a href="https://codepen.io/zapplebee/full/gbNbZE/"></a></h1>
     
-    <p  style="margin-left:400px;">Recording audio time is <span id="countdowntimer">10 </span> Seconds</p>
+    <p  style="margin-left:400px;">Recording audio time is <span id="countdowntimer">5 </span> Seconds</p>
 
     
     
@@ -134,7 +134,7 @@ stroke-width: 0.5px;
         window.setInterval(function() {
             document.getElementById("demo").innerHTML = "Recording Finished!";
         }, 10000);
-        var timeleft = 10;
+        var timeleft = 5;
         var downloadTimer = setInterval(function(){
         timeleft--;
         document.getElementById("countdowntimer").textContent = timeleft;

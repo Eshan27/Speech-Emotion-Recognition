@@ -176,7 +176,7 @@ def record_audio(request):
     # if request.GET('sort-btn'):
     
     def record_my_audio():
-        time_duration = 10
+        time_duration = 5
         FORMAT = pyaudio.paInt16
         CHANNELS = 2
         RATE = 44100

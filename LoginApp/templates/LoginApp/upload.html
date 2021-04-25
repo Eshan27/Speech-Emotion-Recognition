@@ -16,10 +16,11 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="document" style="margin-left:300px;">
-        <button type="submit" style="margin-left:10px;">Upload File</button>
+        <button type="submit" style="margin-left:10px; border-radius: 2em;">Upload File</button>
     </form>
     {% if url %}
-        <p>Uploaded File: <a href= "{{url}}">{{url}}</a></p>
+        <p style="margin-left:390px;">Uploaded File: <a href= "{{url}}">{{url}}</a></p>
+        <p style="margin-left:390px;"><a href="{% url 'home-page' %}">Click here to go predict Audio</a></p>
     {% endif %}
     <h1 class="w3-animate-bottom" style="margin-right:30px; font-size:60px; float:right; margin-top:-200px;">&#129326</h1>                         
     <div style="border-left: 6px solid black; height: 350px; position:absolute; float:right; margin-top:-132px; margin-left:1040px;"></div>

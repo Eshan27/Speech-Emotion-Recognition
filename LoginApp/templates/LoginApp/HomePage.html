@@ -19,7 +19,6 @@
         }</script> -->
     <style>
         body{
-            background-image: url('3.jpg');
             
         }
         h2{
@@ -42,11 +41,10 @@
         }      
     </style>
 </head>
-<body style="background-image: url('3.jpg');">
+<body style="background-image: url('C:/Users/acer/Documents/GitHub/Speech-Emotion-Recognition/LoginApp/templates/LoginApp/3.jpg');">
     <section>
         <div>
-            <h1
-            style="font-family: 'Ubuntu'; 
+            <h1 style="font-family: 'Ubuntu'; 
             text-align: center;font-size: xx-large;">
             Speech Emotion Recognition</h1>
            <h2>About the Topic:</h2>
@@ -62,16 +60,16 @@
             <h2>Go To:</h2>
             <ul>
                 <li>
-                    <a href="">Predict Emotion</a>
+                    <a href="{% url 'home-page' %}">Predict Emotion</a>
                 </li></br>
                 <li>
-                    <a href="">Upload Your Audio File</a>
+                    <a href="{% url 'upload' %}">Upload Your Audio File</a>
                 </li></br>
                 <li>
-                    <a href="">Record Your Own Audio</a>
+                    <a href="{% url 'record' %}">Record Your Own Audio</a>
                 </li></br>
                 <li>
-                    <a href="">About SER</a>
+                    <a href="{% url 'home-about' %}">About SER</a>
                 </li></br>
             </ul>
         </div>
@@ -91,3 +89,4 @@
     </section>
 </body>
 {% endblock %}
+

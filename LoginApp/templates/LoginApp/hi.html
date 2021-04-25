@@ -3,13 +3,12 @@
     
 {% block content %}
     {% for i in titles %}
-        {% comment %} <h3><a href="{{i.song_title}}">{{ i.song_title}}</a> </h3>        
-        Uploaded Date And Time: {{i.date}} {{i.time}}
-        <br/>
+        {% comment %} <p><a href="{{i.song_title}}">{{ i.song_title}}</a> Uploaded Date And Time: {{i.date}} {{i.time}}</p>        
         <audio controls>
         <source src="media/{{i.song_title}}" type="audio/mpeg">
     </audio> {% endcomment %}
-<center>
+
+    <center>
     <table style="margin-top:10px; height:100px;">
     <tr>
         <td width="500px"><h3><a href="{{i.song_title}}">{{ i.song_title}}</a> </h3>      </td>
