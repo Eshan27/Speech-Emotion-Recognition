@@ -1,6 +1,283 @@
 {% extends "LoginApp/Base.html" %}
 {% load static%}
-    {% block content %}    
-    <center>Predicted Emotion is: "{{f_name}}"</center>
+    {% block content %}   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <style>
+    @keyframes flickerAnimation { /* flame pulses */
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-flicker {
+    opacity:1;  
+    animation: flickerAnimation 1s infinite;
+}
+css
+animation
+Share
+Improve this question
+Follow
+asked Jun 1 '14 at 22:08
+
+ac360
+7,0671212 gold badges4848 silver badges8080 bronze badges
+I put your code in jsfiddle and it looks like is working. jsfiddle.net/ricardonunez/n4nfR – Ricardo Nuñez Jun 1 '14 at 22:13
+1
+Not for me on Chrome. Is there a cross-browser issue? – ac360 Jun 1 '14 at 22:13
+2
+@ac360 you lack the so-called browser specific prefix, for Chrome, you have to use -webkit-animation and @-webkit-keyframes. – King King Jun 1 '14 at 22:15 
+Yes. You are missing the browser prefix. Check touko answer. – Ricardo Nuñez Jun 1 '14 at 22:18
+Add a comment
+4 Answers
+
+135
+
+As King King said, you must add the browser specific prefix. This should cover most browsers:
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-flicker {
+   -webkit-animation: flickerAnimation 1s infinite;
+   -moz-animation: flickerAnimation 1s infinite;
+   -o-animation: flickerAnimation 1s infinite;
+    animation: flickerAnimation 1s infinite;
+}
+        h2 {
+            width: 100px;
+            height: 100px;            
+            position: relative;
+            {% comment %} animation: myfirst 5s 2;
+            animation-direction: alternate; {% endcomment %}
+        }
+        @keyframes myfirst {
+            0%   {left: 0px; top: 20px;}
+            25%  {left: 100px; top: 20px;}
+            {% comment %} 50%  {left: 200px; top: 200px;} {% endcomment %}
+            {% comment %} 75%  {left: 0px; top: 200px;} {% endcomment %}
+            100% {left: 0px; top: 0px;}
+        }   
+        .vertical {
+            border-left: 6px solid black;
+            height: 100px;
+            position:absolute;
+            margin-top:190px;
+            margin-left:20px;
+        }    
+    </style>
+      
+    <div class="w3-container" style="margin-top:100px;">
+        <center><h1>Predicted Emotion is: "{{f_name}}"</h1></center>        
+        {% if f_name == 'disgust' %}
+            <h1 style='font-size:200px; margin-left:400px;'>&#129326</h1>    
+            <div class="animate-flicker" style="width:150%; height:80px; animation-delay: 4s; margin-top:80px; margin-left:60px;">                 
+                
+                <h2 class="h" style="float:left; margin-top:20px;">&#129326</h2>            
+                <h2 class="h" style="float:left; margin-top:50px;">&#129326</h2>            
+                <h2 class="h" style="float:left; margin-top:20px;">&#129326</h2>            
+                <h2 class="h" style="float:left; margin-top:50px;">&#129326</h2>            
+                <h2 class="h" style="float:left; margin-top:20px;">&#129326</h2>            
+                <h2 class="h" style="float:left; margin-top:50px;">&#129326</h2>                 
+                <h2 class="h" style="float:left; margin-top:20px;">&#129326</h2>       
+                <h2 class="h" style="float:left; margin-top:50px;">&#129326</h2>             
+                <h2 class="h" style="float:left; margin-top:20px;">&#129326</h2>            
+                <h2 class="h" style="float:left; margin-top:50px;">&#129326</h2>                
+               
+            </div>
+        {% elif f_name == 'happy' %}
+            <h1 style='font-size:200px; margin-left:400px;'>&#128522</h1> 
+            <div class="animate-flicker" style="width:150%; height:80px; animation-delay: 4s; margin-top:80px; margin-left:60px;">                 
+                
+                <h2 class=" " style="float:left; margin-top:20px;">&#128522</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128522</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128522</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128522</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128522</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128522</h2>                 
+                <h2 class=" " style="float:left; margin-top:20px;">&#128522</h2>       
+                <h2 class=" " style="float:left; margin-top:50px;">&#128522</h2>             
+                <h2 class=" " style="float:left; margin-top:20px;">&#128522</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128522</h2>                
+               
+            </div>   
+    
+        {% elif f_name == 'angry' %}
+            <h1 style='font-size:200px; margin-left:400px;'>&#128544</h1>    
+            <div class="animate-flicker" style="width:150%; height:80px; animation-delay: 4s; margin-top:80px; margin-left:60px;">                  
+                
+                <h2 class=" " style="float:left; margin-top:20px;">&#128544</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128544</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128544</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128544</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128544</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128544</h2>                 
+                <h2 class=" " style="float:left; margin-top:20px;">&#128544</h2>       
+                <h2 class=" " style="float:left; margin-top:50px;">&#128544</h2>             
+                <h2 class=" " style="float:left; margin-top:20px;">&#128544</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128544</h2>                
+               
+            </div>
+        
+        {% elif f_name == 'neutral' %}
+            <h1 style='font-size:200px; margin-left:400px;'>&#128528</h1>    
+            <div class="animate-flicker" style="width:150%; height:80px; animation-delay: 4s; margin-top:80px; margin-left:60px;">                  
+                
+                <h2 class=" " style="float:left; margin-top:20px;">&#128528</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128528</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128528</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128528</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128528</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128528</h2>                 
+                <h2 class=" " style="float:left; margin-top:20px;">&#128528</h2>       
+                <h2 class=" " style="float:left; margin-top:50px;">&#128528</h2>             
+                <h2 class=" " style="float:left; margin-top:20px;">&#128528</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128528</h2>                
+               
+            </div>
+        
+        {% elif f_name == 'calm' %}
+            <h1 style='font-size:200px; margin-left:400px;'>&#128524</h1>    
+            <div class="animate-flicker" style="width:150%; height:80px; animation-delay: 4s; margin-top:80px; margin-left:60px;">                  
+                
+                <h2 class=" " style="float:left; margin-top:20px;">&#128524</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128524</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128524</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128524</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128524</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128524</h2>                 
+                <h2 class=" " style="float:left; margin-top:20px;">&#128524</h2>       
+                <h2 class=" " style="float:left; margin-top:50px;">&#128524</h2>             
+                <h2 class=" " style="float:left; margin-top:20px;">&#128524</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128524</h2>                
+               
+            </div>
+        
+        {% elif f_name == 'sad' %}
+            <h1 style='font-size:200px; margin-left:350px;'>&#128532</h1> 
+            
+            {% comment %} <h1 class="w3-animate-bottom" style="float:left; margin-top:150px;">&#128532</h1>             
+                
+            <div class = "vertical"></div>
+            
+            <h1 class="w3-animate-bottom" style="float:left; margin-top:180px;">&#128532</h1>             
+                
+            <div style="margin-left:120px; border-left: 6px solid black; height: 100px; position:absolute; margin-top:220px; margin-left:122px;"></div>
+            
+            <h1 class="w3-animate-bottom" style="float:left; margin-top:150px;">&#128532</h1>             
+                
+            <div class = "vertical" style="margin-left:220px;"></div>
+            
+            <h1 class="w3-animate-bottom" style="margin-left:320px; margin-top:180px;">&#128532</h1>             
+                
+            <div style=" border-left: 6px solid black; height: 100px; position:absolute; margin-top:-70px; margin-left:340px;"></div>
+            
+            <h1 class="w3-animate-bottom" style="margin-left:420px; margin-top:-130px;">&#128532</h1>             
+                
+            <div style=" border-left: 6px solid black; height: 100px; position:absolute; margin-top:-70px; margin-left:440px;"></div>
+            
+            
+            <h1 class="w3-animate-bottom" style="margin-left:520px; margin-top:-90px;">&#128532</h1>             
+                
+            <div style=" border-left: 6px solid black; height: 100px; position:absolute; margin-top:-70px; margin-left:540px;"></div>
+            
+            
+            <h1 class="w3-animate-bottom" style="margin-left:620px; margin-top:-130px;">&#128532</h1>             
+                
+            <div style=" border-left: 6px solid black; height: 100px; position:absolute; margin-top:-70px; margin-left:640px;"></div>
+            
+            
+            <h1 class="w3-animate-bottom" style="margin-left:720px; margin-top:-90px;">&#128532</h1>             
+                
+            <div style=" border-left: 6px solid black; height: 100px; position:absolute; margin-top:-70px; margin-left:740px;"></div>
+            
+            
+            <h1 class="w3-animate-bottom" style="margin-left:820px; margin-top:-130px;">&#128532</h1>             
+                
+            <div style=" border-left: 6px solid black; height: 100px; position:absolute; margin-top:-70px; margin-left:840px;"></div>
+            
+            
+            <h1 class="w3-animate-bottom" style="margin-left:920px; margin-top:-90px;">&#128532</h1>             
+                
+            <div style=" border-left: 6px solid black; height: 100px; position:absolute; margin-top:-70px; margin-left:940px;"></div>
+            
+            
+            <h1 class="w3-animate-bottom" style="margin-left:1020px; margin-top:-130px;">&#128532</h1>             
+                
+            <div style=" border-left: 6px solid black; height: 100px; position:absolute; margin-top:-70px; margin-left:1040px;"></div>
+            
+            <h1 class="w3-animate-bottom" style="margin-left:1120px; margin-top:-90px;">&#128532</h1>             
+                
+            <div style=" border-left: 6px solid black; height: 100px; position:absolute; margin-top:-70px; margin-left:1140px;"></div>
+            
+             {% endcomment %}
+            
+            <div class="animate-flicker" style="width:150%; height:80px; animation-delay: 4s; margin-top:80px; margin-left:60px;">                  
+                
+                <h2 class=" " style="float:left; margin-top:20px;">&#128532</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128532</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128532</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128532</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128532</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128532</h2>                 
+                <h2 class=" " style="float:left; margin-top:20px;">&#128532</h2>       
+                <h2 class=" " style="float:left; margin-top:50px;">&#128532</h2>             
+                <h2 class=" " style="float:left; margin-top:20px;">&#128532</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128532</h2>                
+               
+            </div>
+        {% elif f_name == 'fearful' %}
+            <h1 style='font-size:200px; margin-left:400px;'>&#128552</h1>    
+            <div class="animate-flicker" style="width:150%; height:80px; animation-delay: 4s; margin-top:80px; margin-left:60px;">                  
+                
+                <h2 class=" " style="float:left; margin-top:20px;">&#128552</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128552</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128552</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128552</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128552</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128552</h2>                 
+                <h2 class=" " style="float:left; margin-top:20px;">&#128552</h2>       
+                <h2 class=" " style="float:left; margin-top:50px;">&#128552</h2>             
+                <h2 class=" " style="float:left; margin-top:20px;">&#128552</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128552</h2>                
+               
+            </div>
+        {% else %}        
+            <h1 style='font-size:200px; margin-left:400px;'>&#128558</h1>   
+            <div class="animate-flicker" style="width:150%; height:80px; animation-delay: 4s; margin-top:80px; margin-left:60px;">                  
+                
+                <h2 class=" " style="float:left; margin-top:20px;">&#128558</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128558</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128558</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128558</h2>            
+                <h2 class=" " style="float:left; margin-top:20px;">&#128558</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128558</h21>                 
+                <h2 class=" " style="float:left; margin-top:20px;">&#128558</h2>       
+                <h2 class=" " style="float:left; margin-top:50px;">&#128558</h2>             
+                <h2 class=" " style="float:left; margin-top:20px;">&#128558</h2>            
+                <h2 class=" " style="float:left; margin-top:50px;">&#128558</h2>                
+               
+            </div> 
+        {% endif %}
+            
+        {% comment %} <h1 style='font-size:200px; margin-left:400px;'>&#128512</h1> {% endcomment %}
+    </div>
     
 {% endblock content %}

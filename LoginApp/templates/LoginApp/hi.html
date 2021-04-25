@@ -3,10 +3,26 @@
     
 {% block content %}
     {% for i in titles %}
-        <p><a href="{{i.song_title}}">{{ i.song_title}}</a> Uploaded Date And Time: {{i.date}} {{i.time}}</p>        
+        {% comment %} <h3><a href="{{i.song_title}}">{{ i.song_title}}</a> </h3>        
+        Uploaded Date And Time: {{i.date}} {{i.time}}
+        <br/>
         <audio controls>
         <source src="media/{{i.song_title}}" type="audio/mpeg">
-    </audio>
+    </audio> {% endcomment %}
+<center>
+    <table style="margin-top:10px; height:100px;">
+    <tr>
+        <td width="500px"><h3><a href="{{i.song_title}}">{{ i.song_title}}</a> </h3>      </td>
+        <td><audio controls>
+        <source src="media/{{i.song_title}}" type="audio/mpeg">
+    </audio></td>
+    </tr>
+    <tr>
+        <td>{{i.date}}  {{i.time}}</td>
+        
+    </tr>
+</table>
+</center>
     {% endfor %}
     
     {% comment %} {% for post in posts %}

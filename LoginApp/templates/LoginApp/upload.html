@@ -4,15 +4,31 @@
 
 </head>
 <body>
-    <h3>Upload Your audio file</h3>
+    <h1 class="w3-animate-bottom" style="float:left; font-size:60px; margin-top:295px;">&#128528</h1>                         
+    <div style="border-left: 6px solid black; height: 300px; position:absolute; margin-top:0px; margin-left:35px;"></div>
+    <h1 class="w3-animate-bottom" style="margin-left:80px; font-size:60px; margin-top:240px;">&#128524</h1>                         
+    <div style="border-left: 6px solid black; height: 244px; position:absolute; margin-top:-320px; margin-left:118px;"></div>
+
+    <h1 class="w3-animate-bottom" style="margin-left:165px; font-size:60px; margin-top:-150px;">&#128552</h1>                         
+    <div style="border-left: 6px solid black; height: 175px; position:absolute; margin-top:-245px; margin-left:200px;"></div>
+
+    <h3 style="margin-left:390px; margin-top:40px;">Upload Your audio file</h3>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="document">
-        <button type="submit">Upload File</button>
+        <input type="file" name="document" style="margin-left:300px;">
+        <button type="submit" style="margin-left:10px;">Upload File</button>
     </form>
     {% if url %}
         <p>Uploaded File: <a href= "{{url}}">{{url}}</a></p>
     {% endif %}
+    <h1 class="w3-animate-bottom" style="margin-right:30px; font-size:60px; float:right; margin-top:-200px;">&#129326</h1>                         
+    <div style="border-left: 6px solid black; height: 350px; position:absolute; float:right; margin-top:-132px; margin-left:1040px;"></div>
+    
+    <h1 class="w3-animate-bottom" style="margin-right:120px; font-size:60px; float:right; margin-top:-100px;">&#128522</h1>                         
+    <div style="border-left: 6px solid black; height: 250px; position:absolute; float:right; margin-top:-32px; margin-left:945px;"></div>
+    
+    <h1 class="w3-animate-bottom" style="margin-right:220px; float:right; font-size:60px; margin-top:-30px;">&#128544</h1>                         
+    <div style="border-left: 6px solid black; height: 180px; position:absolute; float:right; margin-top:36px; margin-left:846px;"></div>
     
     </body>
 {% endblock %}

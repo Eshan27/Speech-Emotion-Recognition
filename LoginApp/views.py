@@ -27,6 +27,8 @@ def hi(request):
 
 def about(request):
     return render(request,'LoginApp/about.html' ,{'title': 'About'})
+def home(request):
+    return render(request,'LoginApp/HomePage.html',{'title': 'About'})
 
 def user_logout(request):
     if request.method == "POST":

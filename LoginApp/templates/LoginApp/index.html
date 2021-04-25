@@ -4,23 +4,80 @@
     <meta charset="UTF-8">
     <title>Speech Emotion Classifier | Record </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link href="play/css/bootstrap.min.css" rel="stylesheet">	
+		<!-- Animate CSS -->
+		<link href="play/css/animate.min.css" rel="stylesheet">
+		<!-- Basic stylesheet -->
+		<link rel="stylesheet" href="play/css/owl.carousel.css">
+		<!-- Font awesome CSS -->
+		<link href="play/css/font-awesome.min.css" rel="stylesheet">		
+		<!-- Custom CSS -->
+		<link href="play/css/style.css" rel="stylesheet">
+		<link href="play/css/style-color.css" rel="stylesheet">
+		
     <!-- Latest compiled and minified Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="play/css/style.css">
+    <script>
+      $(document).ready(function(){
+          var audioElement = document.createElement("audio");
+          audioElement.src = "https://raw.githubusercontent.com/Metastruct/garrysmod-chatsounds/master/sound/chatsounds/autoadd/snoop_dogg/hold%20up%20wait.ogg";
+          $('#Play_Button').click(function(){
+              audioElement.play();
+          });
+      });
+    </script>
   </head>
   <body>
-    <h1>Speech Emotion Detection</h1>
-    <h1>Enter Your Audio</h1>
-    <div id="controls">
-     <button id="recordButton">Record</button>
-     <button id="pauseButton" disabled>Pause</button>
-     <button id="stopButton" disabled>Stop</button>
-    </div>
-    <div id="formats"></div>
-    <p><strong>Recordings:</strong></p>
-    <ol id="recordingsList" class="center"></ol>
-    
+  <audio controls id="music">
+<source src="https://raw.githubusercontent.com/Metastruct/garrysmod-chatsounds/master/sound/chatsounds/autoadd/snoop_dogg/hold%20up%20wait.ogg" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<p>Click the buttons to play or pause the music.</p>
+
+
+<script>
+var myMusic= document.getElementById("music");
+var audioElement = document.createElement("audio");
+audioElement.src = "https://raw.githubusercontent.com/Metastruct/garrysmod-chatsounds/master/sound/chatsounds/autoadd/snoop_dogg/hold%20up%20wait.ogg";
+          
+function play() {
+audioElement.play();
+}
+
+function pause() {
+audioElement.pause();
+}
+</script>
+    <div id="latestalbum" class="hero pad">
+				<div class="container">
+					<!-- hero content -->
+					
+							<div class="col-md-6 col-sm-6">
+								<!-- play list -->
+								<div class="playlist-content">
+									<ul class="list-unstyled">
+										<li class="playlist-number">
+											<!-- song information -->
+											<div class="song-info">
+												<!-- song title -->
+												<h4>Melodi Song Track One</h4>
+												<p><strong>Album</strong>: Title &nbsp;|&nbsp; <strong>Type</strong>: Rock &nbsp;|&nbsp; <strong>Singer</strong>: Dawn</p>
+											</div>
+											<!-- music icon -->
+											<div class="music-icon">
+												<button onclick="play()" type="button">Play </button>
+                        <button onclick="pause()" type="button">Pause</button>
+											</div>
+											<div class="clearfix"></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+					
+				</div>
+			</div>
     <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
 
     <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>

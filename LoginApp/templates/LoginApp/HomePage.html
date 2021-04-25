@@ -1,0 +1,93 @@
+{%extends 'LoginApp/Base.html'%}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>SER(Home Page)</title>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <!-- <script>
+        var i = 0;
+        var txt = "Speech Emotion Recognition is a topic which applies the Concept of Machine Learning. In simple terms, the model takes in the audio input and gives the output as the emotion behind the input audio/speech like 'Angry', 'Sad', 'Happy', etc.";
+        var speed = 100;
+        
+        function typeWriter() {
+          if (i < txt.length) {
+            document.getElementById("typing").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+          }
+        }</script> -->
+    <style>
+        body{
+            background-image: url('3.jpg');
+            
+        }
+        h2{
+            text-shadow: 1px 1px grey;
+            font-family: 'Ubuntu';
+        }  
+        h1{
+            text-shadow: 1px 1px grey;
+        }  
+        p{
+            font-family: 'Lora';
+            font-size: larger;
+            width: 66%;
+        }  
+        a{
+            font-family: 'Lora';
+            font-size: larger;
+            color: black;
+            font-weight: bold;
+        }      
+    </style>
+</head>
+<body style="background-image: url('3.jpg');">
+    <section>
+        <div>
+            <h1
+            style="font-family: 'Ubuntu'; 
+            text-align: center;font-size: xx-large;">
+            Speech Emotion Recognition</h1>
+           <h2>About the Topic:</h2>
+           <p id='typing'>
+            <!-- <button onclick="typeWriter()" btn-radius=1em>Click me</button> -->
+           <b>Speech Emotion Recognition</b> is a topic which applies the Concept of <b>Machine Learning</b>.
+           </br>
+            In simple terms, the model takes in the audio input and gives the output as the emotion 
+            behind the input audio/speech like 'Angry', 'Sad', 'Happy', etc.
+           </p>
+        </div>
+        <div>
+            <h2>Go To:</h2>
+            <ul>
+                <li>
+                    <a href="">Predict Emotion</a>
+                </li></br>
+                <li>
+                    <a href="">Upload Your Audio File</a>
+                </li></br>
+                <li>
+                    <a href="">Record Your Own Audio</a>
+                </li></br>
+                <li>
+                    <a href="">About SER</a>
+                </li></br>
+            </ul>
+        </div>
+        <footer>
+            <h2 style="font-family: 'Ubuntu';">Group Members:</h2>
+            <ul style="font-size: large;font-family: 'Lora';">
+                <li>Eshan Goel(101820)</li>
+                </br>
+                <li>Kuruthukulangara Julie Jose(101837)</li>
+                </br>
+                <li>Rahul Khambe(101867)</li>
+                </br>
+                <li>Gargi Raje(101870)</li>
+
+            </ul>
+        </footer>
+    </section>
+</body>
+{% endblock %}
