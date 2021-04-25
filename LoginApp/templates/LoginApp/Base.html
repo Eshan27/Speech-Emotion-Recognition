@@ -28,9 +28,9 @@
     {% endif %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 </head>
-<body>
+<body style="background-color: #FDEBD0;">
     <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="background-color:#1A5276; padding:1em; font-size:16;">
             <div class="container">                
                 <i class='fas fa-headphones' style='font-size:36px'></i>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,27 +38,27 @@
                   </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{% url 'home-page' %}">Home</a>
-                        <a class="nav-item nav-link" href="{% url 'home-page' %}">Predict Emotion</a>
-                        <a class="nav-item nav-link" href="{% url 'upload' %}">Upload Files</a>
-                        <a class="nav-item nav-link" href="{% url 'record' %}">Record</a>
-                        <a class="nav-item nav-link" href="{% url 'home-about' %}">About Us</a>
+                        <a class="nav-item nav-link" href="{% url 'home-page' %}"><b>Home</b></strong></a>
+                        <a class="nav-item nav-link" href="{% url 'home-page' %}"><b>Predict Emotion</b></strong></a>
+                        <a class="nav-item nav-link" href="{% url 'upload' %}"><b>Upload Files</b></strong></a>
+                        <a class="nav-item nav-link" href="{% url 'record' %}"><b>Record</b></strong></a>
+                        <a class="nav-item nav-link" href="{% url 'home-about' %}"><b>About Us</b></strong></a>
                     </div>
         <!-- Navbar Right Side -->
 
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/admin">Admin login</a>
+                <a class="nav-item nav-link" href="/admin"><b>Admin login</b></a>
               {% if user.is_authenticated %}
 
 
-                <a class="nav-item nav-link">Welcome,{{ user.get_username }}</a>
-                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                <a class="nav-item nav-link"><b>Welcome,{{ user.get_username }}</b></a>
+                <a class="nav-item nav-link" href="{% url 'logout' %}"><b>Logout</b></a>
 
               {% else %}
 
-                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                <a class="nav-item nav-link" href="{% url 'login' %}"><b>Login</b></a>
 
-                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                <a class="nav-item nav-link" href="{% url 'register' %}"><b>Register</b></a>
 
               {% endif %}
 
