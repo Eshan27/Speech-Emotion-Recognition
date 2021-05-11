@@ -22,7 +22,7 @@ import warnings
 import os
 def hi(request):    
     all_files = Songs.objects.all()
-    
+    #Loading the required RAVDESS DataSet with length of 1439 Audio Files     
     return render(request,'LoginApp/hi.html',{'titles' : all_files})
 
 def about(request):
@@ -144,6 +144,7 @@ def upload(request):
         name = fs.save(uploaded_file.name,uploaded_file)
         f_type = fs.save(uploaded_file.content_type,uploaded_file)
         context['url'] = fs.url(name)
+        context['name'] = name
         print(uploaded_file.name)
         print(uploaded_file.size)
         print(uploaded_file.content_type)
@@ -158,12 +159,35 @@ def upload(request):
     return render(request, 'LoginApp/upload.html', context)
 
 def prediction(request,id):
-    pred = livePredictions(path='LoginApp/SER_model.h5', file='media/'+id)
+    pred = livePredictions(path='Notebook/testing10_model1.h5', file='media/'+id)
     pred.load_model()
     pre1 = pred.makepredictions()
     print(pre1)
-    
-    return render(request, 'LoginApp/prediction.html',{'f_name':pre1})
+    os.listdir(path='.\media')
+    def getListOfFiles(dirName):
+        listOfFile=os.listdir(dirName)
+        allFiles=list()
+        for entry in listOfFile:
+            fullPath=os.path.join(dirName, entry)
+            if os.path.isdir(fullPath):
+                allFiles=allFiles + getListOfFiles(fullPath)
+            else:
+                allFiles.append(fullPath)
+        return allFiles
+    dirName = './media'
+    listOfFiles = getListOfFiles(dirName)
+    lenfiles=len(listOfFiles)
+    r=sr.Recognizer()
+    # for file in range(0 , len(listOfFiles) , 1):
+    with sr.AudioFile('C:/Users/acer/Documents/GitHub/Speech-Emotion-Recognition/media/'+id) as source:
+        audio = r.listen(source)
+        try:
+            text = r.recognize_google(audio)
+            print(text)
+        except:
+            text = "Error"
+            print('error')    
+    return render(request, 'LoginApp/prediction.html',{'f_name':pre1,'txt':text})
 
 def record_audio(request):
     # global name

@@ -12,5 +12,6 @@ urlpatterns = [
     path('upload/',views.upload,name='upload'),
     path('record/',views.record,name='record'),
     path('record_audio/',views.record_audio,name='record_audio'),
+    path('upload/<str:id>/',views.prediction,name='prediction'),
     path('<str:id>/',views.prediction,name='prediction'),
 ];
